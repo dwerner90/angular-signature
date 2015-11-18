@@ -6,7 +6,7 @@
   "ignore": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/legalthings/signature-pad-angular.git"
+    "url": "git://github.com/dwerner90/signature-pad-angular.git"
   },
   "dependencies": {
     "angular": "~1.3",
