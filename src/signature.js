@@ -56,24 +56,16 @@ angular.module('signature').directive('signaturePad', ['$window',
         
         if (!$scope.height) $scope.height = 220;
         if (!$scope.width) $scope.width = 568;
-        
-        if ($scope.signature && !$scope.signature.$isEmpty && $scope.signature.dataUrl) {
-          signaturePad.fromDataURL($scope.signature.dataUrl);
-        }
 
         $scope.onResize = function() {
           var canvas = $element.find('canvas').get(0);
           var ratio =  Math.max($window.devicePixelRatio || 1, 1);
-          canvas.width = canvas.offsetWidth * ratio;
-          canvas.height = canvas.offsetHeight * ratio;
+          canvas.width = $scope.width * ratio;
+          canvas.height = $scope.height * ratio;
           canvas.getContext("2d").scale(ratio, ratio);
         }
 
         $scope.onResize();
-
-        angular.element($window).bind('resize', function() {
-            $scope.onResize();
-        });
       }
     };
   }
